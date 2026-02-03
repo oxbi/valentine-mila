@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
     <title>Valentine's Day</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap");
@@ -27,6 +30,8 @@
         align-items: center;
         overflow: hidden;
         padding: 40px 20px;
+        -webkit-overflow-scrolling: touch;
+        -webkit-font-smoothing: antialiased;
       }
 
       #letterIntro {
@@ -146,11 +151,14 @@
         opacity: 0;
         transform: scale(0.8);
         transition: all 0.6s ease;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: translate3d(0, 0, 0) scale(0.8);
       }
 
       .container.show {
         opacity: 1;
-        transform: scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
       }
 
       h1 {
@@ -419,7 +427,7 @@
             style="width: 40px; height: 40px"
           />
         </div>
-        <div class="instruction">Вскрой печать!</div>
+        <div class="instruction">Нажми на печать!</div>
       </div>
     </div>
 
