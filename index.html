@@ -149,6 +149,12 @@
         z-index: 6;
       }
 
+      .stamp.clicked {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        pointer-events: none;
+      }
+
       .stamp:hover {
         transform: translate(-50%, -50%) scale(1.1);
       }
@@ -170,6 +176,11 @@
         z-index: 6;
         -webkit-user-select: none;
         user-select: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .instruction.hidden {
+        opacity: 0;
       }
 
       .container {
@@ -520,6 +531,8 @@
 
       // Letter opening animation
       stamp.addEventListener("click", () => {
+        stamp.classList.add("clicked");
+        document.querySelector(".instruction").classList.add("hidden");
         envelope.classList.add("opening");
 
         setTimeout(() => {
