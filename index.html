@@ -177,6 +177,9 @@
         font-weight: 600;
         transition: all 0.3s ease;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: none;
       }
 
       #yesBtn {
@@ -197,7 +200,9 @@
         left: 50%;
         top: 120px;
         transform: translateX(-50%);
-        transition: all 0.15s ease;
+        transition: all 0.19s ease;
+        -webkit-transform: translateX(-50%);
+        will-change: transform, left, top;
       }
 
       #noBtn:hover {
@@ -498,9 +503,10 @@
           }
         } while (true);
 
+        // Use transform for smoother animation on mobile
         noBtn.style.left = randomX + "px";
         noBtn.style.top = randomY + "px";
-        noBtn.style.transform = "none";
+        noBtn.style.transform = "translate(0, 0)";
       }
 
       yesBtn.addEventListener("click", () => {
