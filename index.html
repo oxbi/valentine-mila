@@ -65,6 +65,15 @@
         position: relative;
         width: 300px;
         height: 200px;
+        background: transparent;
+      }
+
+      .envelope-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 200px;
         background: #fff;
         border-radius: 10px;
         box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
@@ -82,11 +91,24 @@
         border-top: 100px solid #ffb6c1;
         transform-origin: top center;
         transition: transform 0.8s ease;
-        z-index: 3;
+        z-index: 4;
       }
 
       .envelope.opening .envelope-flap {
         transform: rotateX(180deg);
+        z-index: 2;
+      }
+
+      .envelope-front {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-bottom: 100px solid #fff;
+        z-index: 5;
       }
 
       .letter {
@@ -100,7 +122,7 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.8s ease;
         transition-delay: 0.3s;
-        z-index: 2;
+        z-index: 3;
       }
 
       .envelope.opening .letter {
@@ -124,7 +146,7 @@
         font-size: 30px;
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
-        z-index: 4;
+        z-index: 6;
       }
 
       .stamp:hover {
@@ -145,7 +167,7 @@
         font-weight: 600;
         text-align: center;
         white-space: nowrap;
-        z-index: 4;
+        z-index: 6;
         -webkit-user-select: none;
         user-select: none;
       }
@@ -397,10 +419,21 @@
           height: 166px;
         }
 
+        .envelope-back {
+          width: 250px;
+          height: 166px;
+        }
+
         .envelope-flap {
           border-left: 125px solid transparent;
           border-right: 125px solid transparent;
           border-top: 83px solid #ffb6c1;
+        }
+
+        .envelope-front {
+          border-left: 125px solid transparent;
+          border-right: 125px solid transparent;
+          border-bottom: 83px solid #fff;
         }
 
         .letter {
@@ -440,8 +473,10 @@
   <body>
     <div id="letterIntro">
       <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
         <div class="envelope-flap"></div>
         <div class="letter"></div>
+        <div class="envelope-front"></div>
         <div class="stamp" id="stamp">
           <img
             src="pngimg_com_-_heart_PNG51349.png"
